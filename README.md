@@ -1,3 +1,3 @@
 # LiquidShape
 
-A description of this package.
+![Preview GIF](Resources/preview.gif)
