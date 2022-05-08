@@ -13,6 +13,10 @@ public struct Liquid: View {
         }
     }
     
+    public static func debug() -> some View {
+        InteractivePreview()
+    }
+    
     public struct Shape: SwiftUI.Shape {
         public let time: Double
         public let scale: Double
@@ -72,22 +76,8 @@ public struct Liquid: View {
             }
         }
     }
-}
-
-struct Liquid_Previews: PreviewProvider {
-    static var previews: some View {
-        Liquid(speed: 2)
-            .previewLayout(.sizeThatFits)
-            .foregroundColor(.blue)
-            .padding(.top, 200)
-        
-        InteractivePreview()
-            .previewLayout(.sizeThatFits)
-            .foregroundColor(.blue)
-            .padding(.top, 200)
-    }
     
-    struct InteractivePreview: View {
+    private struct InteractivePreview: View {
         @State var speed = 1.0
         @State var scale = 2.0 * .pi
         @State var amplitude = 10.0
@@ -146,5 +136,19 @@ struct Liquid_Previews: PreviewProvider {
                 .scenePadding()
             }
         }
+    }
+}
+
+struct Liquid_Previews: PreviewProvider {
+    static var previews: some View {
+        Liquid(speed: 2)
+            .previewLayout(.sizeThatFits)
+            .foregroundColor(.blue)
+            .padding(.top, 200)
+        
+        Liquid.debug()
+            .previewLayout(.sizeThatFits)
+            .foregroundColor(.blue)
+            .padding(.top, 200)
     }
 }
